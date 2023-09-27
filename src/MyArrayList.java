@@ -74,11 +74,15 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void sort(Comparator<? super T> comparator) {
-        // sort для сортировки массивов
-        // (T[]) items приводим тип, так как изначально items объявлен как Object[]
-        // 0, size диапазон элементов от 0 до size
-        // comparator объект, реализующий интерфейс Comparator
-
-        Arrays.sort((T[]) items, 0, size, comparator);
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (comparator.compare((T) items[j], (T) items[j + 1]) > 0) {
+                    // Обмен элементов, если они находятся в неправильном порядке
+                    T temp = (T) items[j];
+                    items[j] = items[j + 1];
+                    items[j + 1] = temp;
+                }
+            }
+        }
     }
 }
