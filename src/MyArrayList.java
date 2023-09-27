@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class MyArrayList<T> implements MyList<T> {
 
@@ -69,5 +70,15 @@ public class MyArrayList<T> implements MyList<T> {
             double newCapacity = Math.max((items.length * 1.5) + 1, requiredCapacity);
             items = Arrays.copyOf(items, (int) newCapacity);
         }
+    }
+
+    @Override
+    public void sort(Comparator<? super T> comparator) {
+        // sort для сортировки массивов
+        // (T[]) items приводим тип, так как изначально items объявлен как Object[]
+        // 0, size диапазон элементов от 0 до size
+        // comparator объект, реализующий интерфейс Comparator
+
+        Arrays.sort((T[]) items, 0, size, comparator);
     }
 }

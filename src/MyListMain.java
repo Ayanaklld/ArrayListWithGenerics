@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class MyListMain {
     public static void main(String[] args) {
         MyList<String> list1 = new MyArrayList<>();
@@ -35,6 +37,16 @@ public class MyListMain {
             System.out.println("The list contains: " + valueTooFind);
         } else {
             System.out.println("The list does not contain: " + valueTooFind);
+        }
+
+        list1.sort(Comparator.naturalOrder());
+        for (int i = 0; i < list1.size(); i++) {
+            System.out.println(list1.get(i));
+        }
+
+        list2.sort(Comparator.naturalOrder());
+        for (int i = 0; i < list2.size(); i++) {
+            System.out.println(list2.get(i));
         }
     }
 }

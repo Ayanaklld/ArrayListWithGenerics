@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public interface MyList<T> {
     void add(T value);
 
@@ -14,4 +16,6 @@ public interface MyList<T> {
     int size();
 
     void capacity(int requiredCapacity);
+
+    void sort(Comparator<? super T> comparator);
 }
